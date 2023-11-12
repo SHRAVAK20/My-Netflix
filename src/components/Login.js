@@ -4,6 +4,7 @@ import Netflix_Background from "../images/Netflix_Background.jpg"
 import { checkValidData } from "../utils/validate";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import {auth} from "../utils/firebase"
+import {USER_AVATAR} from "../utils/constants"
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -26,7 +27,7 @@ const Login = () => {
           // Signed up 
           const user = userCredential.user;
           updateProfile(auth.currentUser, {
-            displayName: name.current.value, photoURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh-3lSF_C0nNEgC1O9cSIkFDPlWLexdkxS0JQH_znhO3pHtThyHfprCnc0no2QaANtFqE&usqp=CAU"
+            displayName: name.current.value, photoURL: USER_AVATAR
           }).then(() => {
             // Profile updated!
             // ...
